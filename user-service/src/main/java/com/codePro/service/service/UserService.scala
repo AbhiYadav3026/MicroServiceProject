@@ -29,7 +29,7 @@ class UserService {
     log.info("inside getUserWithDepartment in UserService...."+userId)
     var responseTemplateVO = new ResponseTemplateVO()
     var user = userRepository.findById(userId).get()
-    var department = restTemplate.getForObject("http://localhost:9001/departments/"+user.getDepartmentId,classOf[Department])
+    var department = restTemplate.getForObject("http://DEPARTMENT-SERVICE/departments/"+user.getDepartmentId,classOf[Department])
     log.info("inside getUserWithDepartment in UserService department id found ...."+department.departmentId)
     responseTemplateVO.setUser(user)
     responseTemplateVO.setDepartment(department)
